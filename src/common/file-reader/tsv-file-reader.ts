@@ -50,7 +50,7 @@ export default class TSVFileReader implements FileReaderInterface {
         town: town as Town,
         price: Number.parseInt(price, 10),
         preview: String(preview),
-        images: images.split(";"),
+        images: images.split(';'),
         isPremium: Boolean(isPremium),
         rating: Number(rating),
         rooms: Number(rooms),

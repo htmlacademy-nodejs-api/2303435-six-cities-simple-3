@@ -1,1 +1,1 @@
-export type Town = "Paris" | "Cologne" | "Brussels" | "Amsterdam" | "Hamburg" | "Dusseldorf"
+export type Town = 'Paris' | 'Cologne' | 'Brussels' | 'Amsterdam' | 'Hamburg' | 'Dusseldorf'

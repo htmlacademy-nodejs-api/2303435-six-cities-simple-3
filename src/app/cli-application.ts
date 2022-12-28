@@ -26,6 +26,7 @@ export default class CLIApplication {
       return acc;
     }, this.commands);
   }
+
   public getCommand(commandName: string): CliCommandInterface {
     return this.commands[commandName] ?? this.commands[this.defaultCommand];
   }
