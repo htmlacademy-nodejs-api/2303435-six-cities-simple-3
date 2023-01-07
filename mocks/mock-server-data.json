@@ -1,0 +1,115 @@
+{
+  "api": {
+    "titles": [
+      "Тёмная башня",
+      "Стрелок",
+      "Извлечение троих",
+      "Куджо",
+      "Глаза дракона"
+    ],
+    "descriptions": [
+      "Как похудеть и не сойти с ума? А как вернуть вес обратно? Необычная история противостояния.",
+      "Прими звонок и превратись в зомби. Рассказ о зомбировании через средства связи.",
+      "Идти или остановиться? Вопрос без правильного ответа. Рассказ о долгой и смертельной прогулке.",
+      "Как похудеть и не сойти с ума? А как вернуть вес обратно? Необычная история противостояния.",
+      "Прими звонок и превратись в зомби. Рассказ о зомбировании через средства связи."
+    ],
+    "postDates": [
+      "2022-01-11T08:40:40.284Z",
+      "2022-02-11T08:41:40.284Z",
+      "2022-03-11T08:42:40.284Z",
+      "2022-04-11T08:43:40.284Z",
+      "2022-05-11T08:44:40.284Z"
+    ],
+    "towns": [
+      "Paris",
+      "Cologne",
+      "Brussels",
+      "Amsterdam",
+      "Hamburg"
+    ],
+    "prices": [
+      "14000",
+      "15000",
+      "16000",
+      "17000",
+      "18000"
+    ],
+    "usersId": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "previewImages": [
+      "book.jpg",
+      "institute-book.jpg",
+      "dark-tower.jpg",
+      "shining.jpg",
+      "draft.jpg"
+    ],
+    "offerImages": [
+      "book.jpg;book.jpg;book.jpg;book.jpg;book.jpg",
+      "institute-book.jpg;institute-book.jpg;institute-book.jpg;institute-book.jpg;institute-book.jpg",
+      "dark-tower.jpg;dark-tower.jpg;dark-tower.jpg;dark-tower.jpg;dark-tower.jpg",
+      "shining.jpg;shining.jpg;shining.jpg;shining.jpg;shining.jpg",
+      "draft.jpg;draft.jpg;draft.jpg;draft.jpg;draft.jpg"
+    ],
+    "premiumFlags": [
+      true,
+      false,
+      false,
+      false,
+      true
+    ],
+    "ratings": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "types": [
+      "Apartment",
+      "House",
+      "Room",
+      "Hotel"
+    ],
+    "rooms": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "guests": [
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "coordinates": [
+      "123213\t64564564",
+      "123213\t23423425",
+      "123213\t23456234",
+      "123213\t23452342",
+      "123213\t23423433"
+    ],
+    "goods": [
+      "BabySeat;Washer",
+      "Towels;BabySeat",
+      "LaptopFriendlyWorkspace;Washer",
+      "Breakfast;Towels",
+      "AirConditioning;Fridge"
+    ],
+    "commentsCount": [
+      5,
+      6,
+      3,
+      6,
+      4
+    ]
+  }
+}
