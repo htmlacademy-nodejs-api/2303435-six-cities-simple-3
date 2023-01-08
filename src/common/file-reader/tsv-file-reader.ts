@@ -1,68 +1,35 @@
-import { readFileSync } from 'fs';
+import EventEmitter from 'events';
+import { createReadStream } from 'fs';
 import { FileReaderInterface } from './file-reader.interface.js';
-import { Offer } from '../../types/offer.type.js';
-import { OfferType } from '../../types/offer-type.enum.js';
-import { Town } from '../../types/town-type.type.js';
-import {GoodsType} from '../../types/goods-type.enum.js';
 
-
-export default class TSVFileReader implements FileReaderInterface {
-  private rawData = '';
-
-  constructor(public filename: string) { }
-
-  public read(): void {
-    this.rawData = readFileSync(this.filename, { encoding: 'utf8' });
+export default class TSVFileReader extends EventEmitter implements FileReaderInterface {
+  constructor(public filename: string) {
+    super();
   }
 
-  public toArray(): Offer[] {
-    if (!this.rawData) {
-      return [];
+  public async read():Promise<void> {
+    const stream = createReadStream(this.filename, {
+      highWaterMark: 16384, // 16KB
+      encoding: 'utf-8',
+    });
+
+    let lineRead = '';
+    let endLinePosition = -1;
+    let importedRowCount = 0;
+
+    for await (const chunk of stream) {
+      lineRead += chunk.toString();
+
+      while ((endLinePosition = lineRead.indexOf('\n')) >= 0) {
+        const completeRow = lineRead.slice(0, endLinePosition + 1);
+        lineRead = lineRead.slice(++endLinePosition);
+        importedRowCount++;
+
+        this.emit('line', completeRow);
+      }
     }
 
-    return this.rawData
-      .split('\n')
-      .filter((row) => row.trim() !== '')
-      .map((line) => line.split('\t'))
-      .map(([
-        name,
-        description,
-        postDate,
-        town,
-        preview,
-        images,
-        isPremium,
-        rating,
-        type,
-        rooms,
-        guests,
-        price,
-        goods,
-        userId,
-        commentsCount,
-        coordinationLatitude,
-        coordinationLongitude,
-
-      ]) => ({
-        name:  String(name),
-        description: String(description),
-        postDate: new Date(postDate),
-        town: town as Town,
-        price: Number.parseInt(price, 10),
-        preview: String(preview),
-        images: images.split(';'),
-        isPremium: Boolean(isPremium),
-        rating: Number(rating),
-        rooms: Number(rooms),
-        guests: Number(guests),
-        goods: goods.split(';') as GoodsType[],
-        type: OfferType[type as 'Apartment' | 'House' | 'Room' | 'Hotel'],
-        userId: Number(userId),
-        coordinates: {
-          latitude: Number(coordinationLatitude),
-          longitude: Number(coordinationLongitude)
-        },
-        commentsCount: Number(commentsCount)
-      }));
+    this.emit('end', importedRowCount);
   }
 }
+
