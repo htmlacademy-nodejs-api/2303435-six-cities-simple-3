@@ -16,7 +16,7 @@
     "clean": "rimraf dist",
     "ts": "ts-node",
     "JSON-server": "json-server ./mocks/mock-server-data.json --port 8080",
-    "start:dev": "npm run ts ./src/main.ts | pino-pretty --colorize --translateTime SYS:standard"
+    "dev": "npm run ts ./src/main.ts | pino-pretty --colorize --translateTime SYS:standard"
   },
   "devDependencies": {
     "@types/convict": "6.1.1",
@@ -38,12 +38,14 @@
     "npm": "8.19.2"
   },
   "dependencies": {
+    "@typegoose/typegoose": "^10.0.0",
     "axios": "1.2.1",
     "convict": "6.2.4",
     "convict-format-with-validator": "6.2.0",
     "dayjs": "1.11.7",
     "dotenv": "16.0.3",
     "inversify": "6.0.1",
+    "mongoose": "6.8.3",
     "pino": "8.8.0",
     "reflect-metadata": "0.1.13"
   }
