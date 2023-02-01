@@ -2,6 +2,7 @@ import { OfferType } from '../types/offer-type.enum.js';
 import {Offer} from '../types/offer.type';
 import {Town} from '../types/town-type.type';
 import {GoodsType} from '../types/goods-type.enum';
+import crypto from 'crypto';
 
 export const createOffer = (row: string) => {
   const tokens = row.replace('\n', '').split('\t');
@@ -30,3 +31,8 @@ export const createOffer = (row: string) => {
 };
 export const getErrorMessage = (error: unknown): string =>
   error instanceof Error ? error.message : '';
+
+export const createSHA256 = (line: string, salt: string): string => {
+  const shaHasher = crypto.createHmac('sha256', salt);
+  return shaHasher.update(line).digest('hex');
+};
